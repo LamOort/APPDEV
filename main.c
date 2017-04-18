@@ -1,8 +1,8 @@
 /*This program is just for testing */
 #include"wave.h"
-#include<stdio.h> 
-#include<math.h> 
-#include<signal.h> 
+#include<stdio.h>
+#include<math.h>
+#include<signal.h>
 #include<sys/wait.h>
 #include<stdlib.h>
 //this program will open a wave file and display header info
@@ -21,7 +21,9 @@ int main(int argc, char *argv[]){
         }*/
 	while(1){
 		ret = system("arecord -r16000 -c1 -d1 -f S16_LE -q data.wav");
-		if(WIFSIGNALED(ret) && (WTERMSIG(ret)==SIGINT || WTERMSIG(ret)==SIGQUIT))break;
+		clearScreen();
+		if(WIFSIGNALED(ret) && (WTERMSIG(ret)==SIGINT || WTERMSIG(ret)==SIGQUIT))
+		break;
 		fp = fopen("data.wav", "r");
         	fread(&myhdr, sizeof(myhdr), 1, fp);
         	displayWAVHDR(myhdr);
@@ -33,4 +35,3 @@ int main(int argc, char *argv[]){
 	scanf("%d", &answer);
 	if(answer==1) testTone(1000, 5);
 }
-

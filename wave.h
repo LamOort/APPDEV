@@ -1,25 +1,27 @@
-/* This file contains wave header information as structure
- * it also contains neccessary constant definition of thi
- */ typedef struct {
+/* this header file contains wave header information as a struct
+ * it also contains neccesary constant definitions , and function
+ * prototypes used in this project*/
+typedef struct {
 	char ChunkID[4];
 	int ChunkSize;
 	char Format[4];
-	char Subchunk1ID[4];
-	int Subchunk1Size;
+	char SubChunk1ID[4];
+	int SubChunk1Size;
 	short int AudioFormat;
 	short int NumChannels;
 	int SampleRate;
 	int ByteRate;
 	short int BlockAlign;
 	short int BitsPerSample;
-	char Subchunk2ID[4];
-	int Subchunk2Size;
+	char SubChunk2ID[4];
+	int SubChunk2Size;
 }WAVHDR;
-#define SAMPLE_RATE 16000
+//#define DEBUG
 #define PI 3.14
-//function prototype 
+#define SAMPLE_RATE 16000
+// function prototypes
 void displayWAVHDR(WAVHDR hdr);
 void printID(char *);
-void fillID(const char *, char[]);
-void testTone(int freq, double duration);
+void fillID(const char *,char [] ); 
+void testTone(int freq, double duration); 
 void displayWAVdata(short int []);

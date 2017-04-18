@@ -6,4 +6,4 @@ void setFGcolor(int fg);
 void resetColors(void);
 void gotoXY(int row, int col);
 void clearScreen(void);
-void displayBar(double num, int col);
+void displayBar(double rms, int col);

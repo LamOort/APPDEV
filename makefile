@@ -1,9 +1,9 @@
- OBJ = main.o wave.o screen.o #comm.o
+OBJ = main.o wave.o screen.o comm.o
 
 APPNAME = sound.a
 
-$ (APPNAME) : $(OBJ)
-	gcc -o $(APPNAME) $(OBJ) -lm
+$(APPNAME) : $(OBJ)
+	gcc -o $(APPNAME) $(OBJ) -lm -lcurl
 
 %.o : %.c
 	gcc -c -o $@ $< -std=c99
